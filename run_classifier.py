@@ -471,6 +471,10 @@ class MbtiProcessor(DataProcessor):
                 text_a = tokenization.convert_to_unicode(line[0])
                 label = "0"
             else:
+                print("INSIDE THE ELSE OF LINE 474")
+                print(line)
+                print(line[0])
+                print(line[1])
                 text_a = tokenization.convert_to_unicode(line[0])
                 label = tokenization.convert_to_unicode(line[1])
             examples.append(
