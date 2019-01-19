@@ -471,10 +471,6 @@ class MbtiProcessor(DataProcessor):
                 text_a = tokenization.convert_to_unicode(line[0])
                 label = "0"
             else:
-                print("INSIDE THE ELSE OF LINE 474")
-                print(line)
-                print(line[0])
-                print(line[1])
                 text_a = tokenization.convert_to_unicode(line[0])
                 label = tokenization.convert_to_unicode(line[1])
             examples.append(
@@ -485,19 +481,6 @@ class MbtiProcessor(DataProcessor):
 def convert_single_example(ex_index, example, label_list, max_seq_length,
                            tokenizer):
     """Converts a single `InputExample` into a single `InputFeatures`."""
-
-    ### Debug convert single example output ###
-    print("\n\n Inside fucntion that converts single example\n\n ")
-    print("Converts a single `InputExample` into a single `InputFeatures")
-    print("inputs:-")
-    print(ex_index)
-    print(example)
-    print(label_list)
-    print(max_seq_length)
-    print(tokenizer)
-    print("STARTING TO RUN FUNCTION")
-
-    ### Debug convert single example output ###
 
     if isinstance(example, PaddingInputExample):
         return InputFeatures(
@@ -576,11 +559,6 @@ def convert_single_example(ex_index, example, label_list, max_seq_length,
     assert len(input_ids) == max_seq_length
     assert len(input_mask) == max_seq_length
     assert len(segment_ids) == max_seq_length
-
-    print("example is:")
-    print(example)
-    print("label is:")
-    print(example.label)
 
     label_id = label_map[example.label]
     if ex_index < 5:
